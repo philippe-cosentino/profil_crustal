@@ -1,0 +1,45 @@
+﻿<!doctype html>
+<html>
+<head>
+	<title>Profil crustal</title>
+	<link rel="icon" type="image/png" href="images/favicon.png" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<meta charset="utf-8">
+	<meta name="author" content="Philippe COSENTINO" />
+	<META name="description" CONTENT="Une application qui permet de r&eacute;aliser des coupes dans la cro&ucirc;te terrestre, et de comparer la distribution des altitudes entre cro&ucirc;te oc&eacute;anique et cro&ucirc;te continentale.">
+	<meta name="keywords" content="croûte continentale, racine crustale, distribution bimodale des altitudes, SIG, SVT" />
+	<link rel="stylesheet" href="js/style.css" type="text/css">
+	<script src="js/demarre.js"></script>
+</head>
+
+<body id="body">
+	<div id="divchargement" style="background-color:black;font-size:2vmin;color:#BBB">
+		<div id="div_titre_chargement" style="width:100%;position:absolute;top:4em;text-align:center;font-size:1.5em;">Profil crustal</div>
+		<div style=" display: flex;  align-items: center; justify-content: center; height:100vh">
+			<div id="image_chargement" style="height:20vmin;opacity:0">
+				<img src="images/splash.jpg" height="100%">
+			</div>
+		</div>
+		<div id="div_chargement" style="width:100%;position:absolute;bottom:2em;text-align:center;"></div>
+		<div id="div_chargement_auteur" style="width:100%;text-align:right;position:absolute;bottom:1em;right:2em;font-size:0.8em;color:#666;"><i>Philippe COSENTINO, mars 2017</i></div>
+	</div>
+	<div id="divmenu" style="display:none;">
+	<canvas id="canv_menu" style="position:absolute;left:0px;top:0px;z-index: 0;" onmousemove="survolMenu(event);" onmouseup="mouseUpMenu(event);"></canvas>
+	</div>
+	<div id="divgl" style="display:none;">
+	<canvas id="canv_deroul" style="position:absolute;left:0px;top:0px;z-index: 2;" onmouseup="mouseUpDeroul(event);" onmouseout="effaceDeroul();"></canvas>
+	<canvas id="canv_globe" style="position:absolute;left:0px;top:0px;z-index: 1;" onmouseout="mouseOut(event);" onmousemove="bougeGlobe(event);" onmousedown="mouseDownGlobe(event);" onmouseup="mouseUp(event);"></canvas>
+	<canvas id="canv_coords" style="position:absolute;left:0px;top:0px;z-index: 0;"></canvas>
+	</div>
+	<script src="js/verifie_navig.js"></script>
+	<div id="divcoupe" style="display:none;">
+	<canvas id="canv_coupe" style="position:absolute;left:0px;top:0px;z-index: 0;"></canvas>
+	<canvas id="canv_surcoupe" style="position:absolute;left:0px;top:0px;z-index: 1;" onmouseup="mouseUpCoupe(event);" onmousemove="survolCoupe(event);" onmousedown="mouseDownCoupe(event);" onmouseout="mouseOutCoupe();"></canvas>
+	</div>
+	
+
+</body>
+	<script>
+		go();
+	</script>
+</html>
